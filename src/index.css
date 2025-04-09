@@ -1,0 +1,87 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 223 33% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 33% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 196 73% 49%;
+    --primary-foreground: 222 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 196 73% 39%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-cyber-navy text-foreground font-cyber;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(30, 174, 219, 0.15) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(30, 174, 219, 0.15) 2%, transparent 0%);
+    background-size: 100px 100px;
+  }
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-gradient-to-br from-card to-card/70 backdrop-blur-lg border border-cyber-blue/20 rounded-2xl shadow-lg overflow-hidden;
+    box-shadow: 0 4px 30px rgba(10, 132, 164, 0.1), inset 0 0 3px rgba(30, 174, 219, 0.3);
+  }
+  
+  .glow-border {
+    @apply border border-cyber-blue/30 relative;
+    box-shadow: 0 0 5px rgba(30, 174, 219, 0.3), inset 0 0 3px rgba(30, 174, 219, 0.2);
+  }
+  
+  .glow-text {
+    @apply font-semibold;
+    text-shadow: 0 0 10px rgba(30, 174, 219, 0.7);
+  }
+  
+  .shine-text {
+    @apply font-bold;
+    background: linear-gradient(90deg, #1EAEDB 0%, #FFFFFF 50%, #1EAEDB 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-shine 3s linear infinite;
+  }
+  
+  .grid-overlay {
+    @apply pointer-events-none fixed inset-0 z-50 opacity-10;
+    background-size: 100px 100px;
+    background-image: linear-gradient(to right, rgba(30, 174, 219, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(30, 174, 219, 0.1) 1px, transparent 1px);
+  }
+}
